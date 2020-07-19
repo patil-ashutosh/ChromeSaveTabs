@@ -1,110 +1,210 @@
+/* -------------------- */
+/* Genaric  */
+/* -------------------- */
+
 * {
-    font-family: "Lato", "Arial", sans-serif;
-    text-transform: uppercase;
+	font-family: "Lato", "Arial", sans-serif;
+	text-transform: uppercase;
+	color: #c5c2c2e1;
 }
 
-body{
-    width: 300px;
-    min-height:160px;    
+img {
+	height: 25px;
+}
+
+body {
+    width: 350px;
+    min-height: 160px;
     background-color: #1d3865;
-    max-height: 2000px;
-    overflow: visible;
+    max-height: 2000px;    
+    overflow: hidden;
     border: 1px solid #1d3865;
-
-}
-header{
-    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)
-    ),url(../saveAllTabs/bg.jpg);
-    color: #c5c2c2e1;
-    font-family: "Lato", "Arial", sans-serif;    
-    height:120px
-
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
-h5{
-    text-transform: uppercase;
-    padding-top: 50px;   
-    font-size: 140%;    
-    margin-left: 10px;
+header {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(bg.jpg);
+	color: #c5c2c2e1;
+	font-family: "Lato", "Arial", sans-serif;
+	height: 120px
 }
+
+h5 {
+	text-transform: uppercase;
+	padding-top: 50px;
+	font-size: 140%;
+	margin-left: 10px;
+}
+
+
+/* -------------------- */
+/* Save Tab div */
+/* -------------------- */
+
+.saveTab {
+	height: 150px;
+	color: white;
+}
+
+input {
+	margin-top: 20px;
+	border-radius: 20px;
+	height: 40px;
+	width: 220px;
+	text-align: center;
+	font-size: 95%;
+	margin-right: 10px;
+}
+
+input:focus {
+	color: #1d3865;
+}
+
+.saveTagForm {
+	display: flex;
+}
+
+.saveTagForm button {
+	border: 1px solid #1d3865;
+	border-radius: 20px;
+	text-transform: uppercase;
+	background-color: white;
+	font-size: 95%;
+	margin-top: 20px;
+	color: #686060e1;
+	height: 40px;
+	width: 100px;
+	-webkit-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-ms-border-radius: 20px;
+	-o-border-radius: 20px;
+}
+
+.saveTagForm button:hover {
+	color: #1d3865;
+}
+
+.listOfSavedTabs {
+	margin-top: 10px;
+}
+
+.listOfSavedTabs ul {
+   
+   
+    overflow:auto;
+	height: 100px;
+}
+
+.listOfSavedTabs ul li {
+	color: #c5c2c2f1;
+	display: flex;
+	margin-bottom: 5px;
+}
+
+.listOfSavedTabs ul li img {
+	margin-left: 10px;
+}
+
+#myList {
+	margin-top: 20px;
+}
+
+
+/* -------------------- */
+
 
 /* Outside block borde */
+
 .list-group-item {
-    position: relative;
-    display: block;
-    font-family: "Lato", "Arial", sans-serif;
-    background-color: #c5c2c2f1;
-    padding: 0.75rem 1.25rem;
-    border: 1px solid #1d3865;
-    font-size: 95%;    
-    float: right;
-    transition: background-color,font-size 0.5s,0.5s;    
+	position: relative;
+	display: block;
+	font-family: "Lato", "Arial", sans-serif;
+	background-color: #c5c2c2f1;
+	padding: 0.75rem 1.25rem;
+	border: 1px solid #1d3865;
+	font-size: 95%;
+	float: right;
+	transition: background-color, font-size 0.5s, 0.5s;
+	-webkit-transition: background-color, font-size 0.5s, 0.5s;
+	-moz-transition: background-color, font-size 0.5s, 0.5s;
+	-ms-transition: background-color, font-size 0.5s, 0.5s;
+	-o-transition: background-color, font-size 0.5s, 0.5s;
 }
 
-.list-group-item:hover{
-    background-color: #1d3865;
-    color: #c5c2c2e1;
-    font-size: 105%;
+.list-group-item:hover {
+	background-color: #1d3865;
+	color: #c5c2c2e1;
+	font-size: 105%;
 }
 
 .list-group-item img {
-    float: right;
+	float: right;
 }
 
 .list-group-item-action {
-    width: 100%;
-    color: #1d3865;
-    text-align: left;
-   
+	width: 100%;
+	color: #1d3865;
+	text-align: left;
 }
 
-
-#exampleModalLong, #clearModal {
-    color: black;
-    background-color: #e7e7e7;
-	background-position:center;
-	background-size:cover;
-	text-align:center;
+#exampleModalLong,
+#clearModal {
+	color: black;
+	background-color: #e7e7e7;
+	background-position: center;
+	background-size: cover;
+	text-align: center;
 }
 
 #myConfrimBox {
-    height: 500px;
+	height: 500px;
 }
 
+
 /* border of pop list */
+
 .dropdown-item {
-    display: block;
-    width: 100%;
-    padding: 0.25rem 1.5rem;
-    clear: both;
-    font-weight: 400;
-    /*color: #212529;*/
-    text-align: inherit;
-    white-space: nowrap;
-    background-color: transparent;
-    /* border: 0; */
-    border: 1px solid rgba(0, 0, 0, 0.125);
+	display: block;
+	width: 100%;
+	padding: 0.25rem 1.5rem;
+	clear: both;
+	font-weight: 400;
+	/*color: #212529;*/
+	text-align: inherit;
+	white-space: nowrap;
+	background-color: transparent;
+	/* border: 0; */
+	border: 1px solid rgba(0, 0, 0, 0.125);
 }
 
 .modal-content {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    width: 100%;
-    height: 80%;
-    pointer-events: auto;
-    background-clip: padding-box;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 0.3rem;
-    outline: 0;
+	position: relative;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	width: 100%;
+	height: 80%;
+	pointer-events: auto;
+	background-clip: padding-box;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+	border-radius: 0.3rem;
+	outline: 0;
 }
 
 .active {
-    background-color: #666;
-    color: white;
-  }
+	background-color: #666;
+	color: white;
+}
 
-  .showcss{ display:block;}
-  .hidecss{ display:none;}
+.showcss {
+	display: block;
+}
+
+.hidecss {
+	display: none;
+}

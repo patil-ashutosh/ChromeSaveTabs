@@ -7,6 +7,8 @@ function saveTabTag(){
 
     //alert(height_body);
     //$('body').css('height', height_body*2);
+    var name = $('input').val();
+
     if(len_tags != 0){
         var height_body = initial_height + (34 * (len_tags+1) * 2);
     }else{
@@ -17,6 +19,8 @@ function saveTabTag(){
 
     let count = 0;
     var tab_urls = [];
+    
+   
     chrome.tabs.query({'currentWindow': true}, function (tabs) {
         tabs.forEach(function(tab){
           count = count + 1;
@@ -26,10 +30,10 @@ function saveTabTag(){
 
   
       if (typeof(Storage) !== "undefined") {
-
+               
 
         //alert(strDate);
-        customComfirm(tab_urls, initial_height);
+       
     
       } else{
       alert("Sorry! No Web Storage support..");
@@ -38,7 +42,10 @@ function saveTabTag(){
     //var urls_list = localStorage.getItem(name);
     //alert(localStorage.getItem(name));
     });
-    
+   console.log(name);
+  //  debugger;
+    saveToStorageLogic(name,tab_urls,initial_height);
+    getAllSavedNames1(name);
   }
   
 
@@ -83,6 +90,39 @@ function saveTabTag(){
   
   }
 
+  function getAllSavedNames(){
+
+    var len_tags = localStorage.length;
+    var listContainer=document.getElementsByClassName('listOfSavedTabs');
+    var listElement = "<ul></ul>";
+    $(".listOfSavedTabs").append(listElement);
+    console.log(len_tags);
+    // listContainer.appendChild(listElement);
+    for (var i=0;i<len_tags;i++){
+      var listItem="<li>"+localStorage.key(i)+"<img id='theImg' src='icons8-restore-32.png' title='Retore Tabs'/><img id='theImg' src='icons8-delete-bin-32.png' title='Delete Tabs'/></li>";
+      $(".listOfSavedTabs ul").append(listItem);
+      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-restore-32.png" title="Retore Tabs"/>');
+      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-delete-bin-32.png" title="Delete Tabs"/>');
+    }   
+   
+  }
+
+  function getAllSavedNames1(name){
+
+    var len_tags = localStorage.length;
+    // var listContainer=document.getElementsByClassName('listOfSavedTabs');
+    // var listElement = "<ul></ul>";
+    // $(".listOfSavedTabs ul").append(listElement);
+    console.log(len_tags);
+    // listContainer.appendChild(listElement);
+    
+      var listItem="<li>"+name+"<img id='theImg' src='icons8-restore-32.png' title='Retore Tabs'/><img id='theImg' src='icons8-delete-bin-32.png' title='Delete Tabs'/></li>";
+      $(".listOfSavedTabs ul").append(listItem);
+      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-restore-32.png" title="Retore Tabs"/>');
+      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-delete-bin-32.png" title="Delete Tabs"/>');
+       
+   
+  }
 
 
 //custom Confrim Dialog with Custom message and callback handler

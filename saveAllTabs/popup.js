@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 
-
+getAllSavedNames();
   
   $('#myList a').on('click', function (e) {
     e.preventDefault()
@@ -14,7 +14,7 @@ $(document).ready(function() {
                       
     
   //SaveTabsToTag button
-  $('#myList a[href="#saveTabs"]').click(saveTabTag);
+  $('.saveTagForm button').click(saveTabTag);
 
 
  

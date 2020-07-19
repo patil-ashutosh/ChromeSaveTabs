@@ -1,98 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://cdnjs.cloudflare.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+      <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"-->
+      <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+      <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+      <link href="jqueryConfirm/dist/jquery-confirm.min.css" rel="stylesheet" />
+      <link rel="stylesheet" type="text/css" href="popup.css">
+      <title>Save All Tabs</title>
+   </head>
 
+   <body>
 
-    <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"-->
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-    <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
-    <link href="jqueryConfirm/dist/jquery-confirm.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="popup.css">
-    <title>Save All Tabs</title>
+      <script type="text/javascript" src="jquery-3.4.1.js"></script>
+      <!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
+      <script src="bootstrap/js//bootstrap.bundle.min.js"></script>
+      <script src="jqueryConfirm/dist/jquery-confirm.min.js"></script>
+      <script src="helper_fn.js"></script>
+      <script src="save_tabs.js"></script>
+      <script src="load_tabs.js"></script>
+      <script src="delete_tabs.js"></script>
+      <script src="popup.js"></script>
 
-  </head>
-  <body>
-    
-
-
-      
-
-    <script type="text/javascript" src="jquery-3.4.1.js"></script>
-    <!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>-->
-    <script src="bootstrap/js//bootstrap.bundle.min.js"></script>
-    <script src="jqueryConfirm/dist/jquery-confirm.min.js"></script>
-    <script src="helper_fn.js"></script>
-    <script src="save_tabs.js"></script>
-    <script src="load_tabs.js"></script>
-    <script src="delete_tabs.js"></script>
-    <script src="popup.js"></script>
-
-
-
-<header>
-  <h5>Save All tabs</h5>
-</header>
-
-  <!-- List group  -->
-  <div class="list-group" id="myList" role="tablist">
-      
-    <a class="list-group-item list-group-item-action" style="text-align:center" data-toggle="list" href="#saveTabs" role="tab" data-backdrop="static">Save Session<img src="../saveAllTabs/icons8-save-32.png" alt="Save"> </a>
-    <a class="list-group-item list-group-item-action" style="text-align:center" data-toggle="modal" href="#settings" role="tab" data-target="#exampleModalLong" data-backdrop="static">Restore Session <img src="../saveAllTabs/icons8-restore-32.png" alt="Restore"></a>  
-    <a class="list-group-item list-group-item-action" style="text-align:center" data-toggle="modal" href="#clrTabs" role="tab" data-target="#clearModal" data-backdrop="static">Delete Session <img src="../saveAllTabs/icons8-delete-bin-32.png" alt="Delete"></a>
-  </div>  
-
-
-  <!-- Modal -->
-<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Open Session</h5>
-        <button type="button" class="close" id = "loadCloseicon" style="float: right;" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+        <div class="wholeContent">
+      <header>
+         <h5>Save All tabs</h5>
+      </header>
+      <div class="saveTab">
+         <div class="saveTagForm">
+            <input type="text" placeholder="Enter Session Name">
+            <button title="Save Tabs">Save <img src="icons8-save-32.png" alt="Save"></button>
+         </div>
+         <div class="listOfSavedTabs">
+         </div>
       </div>
-      <div class="modal-body" id="md-body">
+
+      <!-- List group  -->
+      <div class="list-group" id="myList" role="tablist">      
+         <!-- <a class="list-group-item list-group-item-action" style="text-align:center" data-toggle="list" href="#saveTabs" role="tab" data-backdrop="static">Save Session<img src="../saveAllTabs/icons8-save-32.png" alt="Save"> </a> -->
+         <!-- <a class="list-group-item list-group-item-action" style="text-align:center" data-toggle="modal" href="#settings" role="tab" data-target="#exampleModalLong" data-backdrop="static">Restore Session <img src="../saveAllTabs/icons8-restore-32.png" alt="Restore"></a>  
+         <a class="list-group-item list-group-item-action" style="text-align:center" data-toggle="modal" href="#clrTabs" role="tab" data-target="#clearModal" data-backdrop="static">Delete Session <img src="../saveAllTabs/icons8-delete-bin-32.png" alt="Delete"></a> -->
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" id="loadClose" style="width: 100%" data-dismiss="modal">Close</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Open Session</h5>
+                  <button type="button" class="close" id = "loadCloseicon" style="float: right;" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body" id="md-body">
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" id="loadClose" style="width: 100%" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="clearModalTitle" aria-hidden="true">
+         <div class="modal-dialog" role="document">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Delete Session</h5>
+                  <button type="button" class="close" id ="clrCloseicon" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+               </div>
+               <div class="modal-body" id="md-body">
+                  <ul class="ul-class" id="ul-id">
+                  </ul>
+               </div>
+               <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" style="width: 100%" id='clrall'>Delete All Sessions</button>
+                  <button type="button" class="btn btn-secondary" style="width: 100%" id ="clrClose" data-dismiss="modal">Close</button>
+               </div>
+            </div>
+         </div>
       </div>
     </div>
-  </div>
-</div>
-
-    <!-- Modal -->
-<div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="clearModalTitle" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Delete Session</h5>
-        <button type="button" class="close" id ="clrCloseicon" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="md-body">
-        <ul class="ul-class" id="ul-id">
-
-        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" style="width: 100%" id='clrall'>Delete All Sessions</button>
-        <button type="button" class="btn btn-secondary" style="width: 100%" id ="clrClose" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-   
-   
-   
-
-
-
-  </body>
+   </body>
 </html>
