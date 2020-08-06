@@ -4,30 +4,33 @@
 
 * {
 	font-family: "Lato", "Arial", sans-serif;
-	text-transform: uppercase;
 	color: #c5c2c2e1;
+	font-weight: 300;
 }
 
 img {
 	height: 25px;
 }
+button{
+	width: 120px;
+}
 
 body {
-    width: 350px;
-    min-height: 160px;
-    background-color: #1d3865;
-    max-height: 2000px;    
-    overflow: hidden;
-    border: 1px solid #1d3865;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+	border-radius: 30px;
+	width: 350px;
+	min-height: 160px;
+	background-color: #1d3865;
+	max-height: 2000px;
+	overflow: hidden;
+	border: 1px solid #1d3865;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+	-ms-border-radius: 30px;
+	-o-border-radius: 30px;
 }
 
 header {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url(bg.jpg);
+	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(bg.jpg);
 	color: #c5c2c2e1;
 	font-family: "Lato", "Arial", sans-serif;
 	height: 120px
@@ -38,6 +41,11 @@ h5 {
 	padding-top: 50px;
 	font-size: 140%;
 	margin-left: 10px;
+	font-weight: 500;
+}
+strong{
+	font-weight: bold;
+	color: #1d3865;
 }
 
 
@@ -58,6 +66,7 @@ input {
 	text-align: center;
 	font-size: 95%;
 	margin-right: 10px;
+
 }
 
 input:focus {
@@ -71,37 +80,40 @@ input:focus {
 .saveTagForm button {
 	border: 1px solid #1d3865;
 	border-radius: 20px;
-	text-transform: uppercase;
 	background-color: white;
 	font-size: 95%;
 	margin-top: 20px;
-	color: #686060e1;
+	color: #1d3865;
 	height: 40px;
 	width: 100px;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	-ms-border-radius: 20px;
-	-o-border-radius: 20px;
+	
 }
 
 .saveTagForm button:hover {
-	color: #1d3865;
+	font-weight: bold;
 }
+
+/* -------------------- */
+/* list div */
+/* -------------------- */
 
 .listOfSavedTabs {
 	margin-top: 10px;
+	margin-bottom: 0px;
 }
+ 
 
-.listOfSavedTabs ul {
-   
+.listOfSavedTabs ul {  
    
     overflow:auto;
-	height: 100px;
+	height: 85px;
+	padding: 0px 5px 0px 5px;
 }
 
 .listOfSavedTabs ul li {
 	color: #c5c2c2f1;
 	display: flex;
+	font-weight: 300;
 	margin-bottom: 5px;
 }
 
@@ -113,6 +125,65 @@ input:focus {
 	margin-top: 20px;
 }
 
+/* -------------------- */
+/* Pop Up box */
+/* -------------------- */
+
+.jconfirm-box {	
+
+	width: 90%;
+	font-family: "Lato", "Arial", sans-serif;
+	
+}
+.jconfirm-content div{
+	font-size: 95%;
+	color: #1d3865;
+}
+
+.jconfirm-buttons button{
+	text-transform: capitalize;
+	background-color: #1d3865;
+	color: #888787f1;
+
+}
+
+.btn-block{
+	background-color: #1d3865;
+	color: #888787f1;
+}
+
+.restore{
+	width: 260px;
+	background-color: #1d3865;
+	color: #888787f1;
+	text-transform: capitalize;
+}
+.restore:hover{
+	background-color: #1d3865;
+	color: white;
+}
+.restoreCancel{
+	width: 260px;
+	text-transform: capitalize;
+}
+
+.btn-danger{
+	color: white;
+}
+
+.AddedClose{
+	
+	visibility: hidden;
+}
+
+.AddedOk{
+	color: white;
+}
+
+.AddedOk:hover{
+	color: white;
+	background-color: #1d3865;
+}
 
 /* -------------------- */
 
@@ -129,10 +200,7 @@ input:focus {
 	font-size: 95%;
 	float: right;
 	transition: background-color, font-size 0.5s, 0.5s;
-	-webkit-transition: background-color, font-size 0.5s, 0.5s;
-	-moz-transition: background-color, font-size 0.5s, 0.5s;
-	-ms-transition: background-color, font-size 0.5s, 0.5s;
-	-o-transition: background-color, font-size 0.5s, 0.5s;
+	
 }
 
 .list-group-item:hover {

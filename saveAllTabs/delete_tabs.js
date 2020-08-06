@@ -1,4 +1,4 @@
-function clearAllTabs(){
+/*function clearAllTabs(){
 
     var len_tags = localStorage.length;
     var initial_height = $('body').height();
@@ -67,7 +67,7 @@ function clearAllTabs(){
                   btnClass: 'btn-blue',
                   text: 'Cancel',
       
-              },
+              }
   
               },
   
@@ -133,6 +133,31 @@ function clearAllTabs(){
     $('#clrClose').click(function(){
       $('body').css('height', initial_height);
   
-    });
-  
+    });   
   }
+ */
+
+  function clearSpecificData(key, IdName){
+    var msg = "Do you want delete " +"<strong>"+key.trim()+"</strong>"+ " session?"
+        var yes = "Yes";
+        var no = "No";        
+         $.confirm({
+          content: msg,
+          title: '',
+          buttons: {
+              Delete: {
+                btnClass: 'btn btn-danger',
+                text: 'Delete',
+                action: function (){
+                  window.localStorage.removeItem(key);  
+                  $("#"+IdName).parent().remove();  
+                  }
+                },
+                cancel: {                
+                  text: 'Cancel',
+              }
+              },
+          })
+          
+   
+   }

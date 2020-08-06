@@ -7,15 +7,15 @@ function saveTabTag(){
 
     //alert(height_body);
     //$('body').css('height', height_body*2);
-    var name = $('input').val();
-
+    var name = $('input').val().trim();
+    $('input').val('');
     if(len_tags != 0){
         var height_body = initial_height + (34 * (len_tags+1) * 2);
     }else{
         var height_body = (34 + initial_height*2)
     }
     var height_body = (34 + initial_height*2)
-    $('body').css('height', height_body);
+    //  
 
     let count = 0;
     var tab_urls = [];
@@ -24,36 +24,33 @@ function saveTabTag(){
     chrome.tabs.query({'currentWindow': true}, function (tabs) {
         tabs.forEach(function(tab){
           count = count + 1;
-        //console.log(tab.url);
+          
         tab_urls.push(tab.url);
         });
-
+            
+      saveToStorageLogic(name,tab_urls,initial_height);
   
-      if (typeof(Storage) !== "undefined") {
-               
+      if (typeof(Storage) !== "undefined") {              
 
-        //alert(strDate);
-       
-    
+        //alert(strDate);    
       } else{
       alert("Sorry! No Web Storage support..");
       // Sorry! No Web Storage support..
       }
     //var urls_list = localStorage.getItem(name);
     //alert(localStorage.getItem(name));
-    });
-   console.log(name);
-  //  debugger;
-    saveToStorageLogic(name,tab_urls,initial_height);
-    getAllSavedNames1(name);
+    });    
+   
   }
   
 
 
   function saveToStorageLogic(name, tab_urls, initial_height){
+    msg1='Saved'
     if(name in localStorage){
-      msg = "Tag '" + name + "' already exist. Do you want to Overwrite ?";
-      msg = 'The session with name ' +name + ' already exists. Do you want to overwrite it?'
+      msg = "Tag '" +"<strong>"+ name + +"</strong>"+"' already exist. Do you want to Overwrite ?";
+      msg = 'The session with name ' +"<strong>"+name+"</strong>"+" already exists. Do you want to overwrite it?"
+      
       $.confirm({
         content: msg,
         title: false,
@@ -62,13 +59,24 @@ function saveTabTag(){
         buttons: {
             Yes: {
               
-                btnClass: 'btn-warning',
-                text: 'Yes',
-                
+                text: 'Yes',                
                 action: function(){
                 localStorage.setItem(name, JSON.stringify(tab_urls));
                 $('body').css('height', initial_height).delay(1000);
-
+                $.confirm({
+                  content: msg1,
+                  title: false,
+                  buttons: {
+                    close:{
+                      btnClass: 'AddedClose'
+                    },
+                    ok:{
+                      btnClass: 'AddedOk'
+                    }
+                  }
+                
+                 
+                })
 
               }
                 //$('body').css('height', initial_height);
@@ -82,12 +90,26 @@ function saveTabTag(){
   
     }
     else{
+      
       localStorage.setItem(name, JSON.stringify(tab_urls));
       $('body').css('height', initial_height).delay(1000);
+      $.confirm({
+        content: msg1,
+        title: false,
+        buttons: {
+          close:{
+            btnClass: 'AddedClose'
+          },
+          ok:{
+            btnClass: 'AddedOk'
+          }
+        }
+      
+       
+      })
+      getAllSavedNames1(name);
 
-    }
-    
-  
+    }  
   }
 
   function getAllSavedNames(){
@@ -99,12 +121,12 @@ function saveTabTag(){
     console.log(len_tags);
     // listContainer.appendChild(listElement);
     for (var i=0;i<len_tags;i++){
-      var listItem="<li>"+localStorage.key(i)+"<img id='theImg' src='icons8-restore-32.png' title='Retore Tabs'/><img id='theImg' src='icons8-delete-bin-32.png' title='Delete Tabs'/></li>";
-      $(".listOfSavedTabs ul").append(listItem);
-      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-restore-32.png" title="Retore Tabs"/>');
-      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-delete-bin-32.png" title="Delete Tabs"/>');
-    }   
-   
+      var deleteButton='deleteButton'+i;
+      var restoreButton='restoreButton'+i;
+      var listItem="<li><img id="+restoreButton+" src='icons8-restore-32.png' title='Retore Tabs'/><img id="+deleteButton+" src='icons8-delete-bin-32.png' title='Delete Tabs'/> &nbsp;&nbsp;&nbsp;"+localStorage.key(i)+"</li>";
+    
+      $(".listOfSavedTabs ul").append(listItem);      
+    }      
   }
 
   function getAllSavedNames1(name){
@@ -115,14 +137,14 @@ function saveTabTag(){
     // $(".listOfSavedTabs ul").append(listElement);
     console.log(len_tags);
     // listContainer.appendChild(listElement);
-    
-      var listItem="<li>"+name+"<img id='theImg' src='icons8-restore-32.png' title='Retore Tabs'/><img id='theImg' src='icons8-delete-bin-32.png' title='Delete Tabs'/></li>";
-      $(".listOfSavedTabs ul").append(listItem);
-      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-restore-32.png" title="Retore Tabs"/>');
-      // $(".listOfSavedTabs ul li").append('<img id="theImg" src="icons8-delete-bin-32.png" title="Delete Tabs"/>');
-       
-   
+    var deleteButton='deleteButton'+(len_tags-1);
+    var restoreButton='restoreButton'+(len_tags-1);
+    var listItem="<li><img id="+restoreButton+" src='icons8-restore-32.png' title='Retore Tabs'/><img id="+deleteButton+" src='icons8-delete-bin-32.png' title='Delete Tabs'/> &nbsp;&nbsp;&nbsp;"+name+"</li>";
+    $(".listOfSavedTabs ul").append(listItem);   
   }
 
+  
 
 //custom Confrim Dialog with Custom message and callback handler
+
+

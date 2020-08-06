@@ -1,3 +1,43 @@
+function loadTabs1(key){
+  console.log(key);
+
+  var urls_list1 = localStorage.getItem(key);
+  console.log(localStorage.getItem(key+""));
+  var x = JSON.parse(urls_list1);
+  var msg = "Open session in ..";
+
+  $.confirm({
+    content: msg,
+    title: false,
+    buttons: {
+        Current: {
+          btnClass: 'restore',
+          text: 'Existing Window',
+          action: function () {
+            for(let j=0;j<x.length;j++){
+              chrome.tabs.create({url: x[j]});
+            }
+          }
+
+        },
+        New: {
+          btnClass: 'restore',
+          text: 'New Window',
+          action: function () {
+            chrome.windows.create({url: x});
+          }
+          //$('body').css('height', initial_height);
+          //close
+      },
+      cancel: {
+        btnClass: 'btn btn-default restoreCancel',
+        text: 'Cancel',
+
+    }
+    }
+  });
+}
+
 function loadTabs(event){
   
     var len_tags = localStorage.length;
@@ -90,3 +130,5 @@ function loadTabs(event){
     });
     
 }
+
+
