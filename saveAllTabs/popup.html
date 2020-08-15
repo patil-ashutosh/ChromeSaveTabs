@@ -25,16 +25,30 @@
       <script src="popup.js"></script>
 
         <div class="wholeContent">
-      <header>
+      <!-- <header>
          <h5>Save All tabs</h5>
-      </header>
+      </header> -->
       
       <div class="saveTab">
          <div class="saveTagForm">
-            <input type="text" placeholder="Enter Session Name" onfocus="this.value=''">
-            <button title="Save Tabs">Save <img src="icons8-save-32.png" alt="Save"></button>
+            <div>
+               <div class="inputClass">
+               <label for="">Name:</label>
+                  <input type="text" placeholder="Enter Session Name" onfocus="this.value=''">
+               </div>
+               <p id="savedMsg">Session has been saved.</p>
+            </div>
+            <button title="Save Tabs">Save <img src="icons8-save-16.png" alt="Save"></button>
          </div>
-         <div class="listOfSavedTabs">
+         <div class="addLine"></div>
+         <div class="childView">
+            
+            <div class="listOfSavedTabs">
+               <p>No session stored in system</p>
+            </div>
+            <div class="cleanData">
+               <img src="icons8-broom-24.png" alt="deleteAll" title="Delete All">
+            </div>
          </div>
       </div>
 

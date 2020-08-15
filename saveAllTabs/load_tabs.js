@@ -1,13 +1,17 @@
 function loadTabs1(key){
-  console.log(key);
+
 
   var urls_list1 = localStorage.getItem(key);
-  console.log(localStorage.getItem(key+""));
+ 
   var x = JSON.parse(urls_list1);
+  var x1=[];
   var msg = "Open session in ..";
-
+  for(let j=0;j<x.length;j++){
+    x1.push(x[j][1]);
+  }
+  console.log(x1)
   $.confirm({
-    content: msg,
+    content: msg,   
     title: false,
     buttons: {
         Current: {
@@ -15,7 +19,7 @@ function loadTabs1(key){
           text: 'Existing Window',
           action: function () {
             for(let j=0;j<x.length;j++){
-              chrome.tabs.create({url: x[j]});
+              chrome.tabs.create({url: x[j][1]});
             }
           }
 
@@ -24,7 +28,7 @@ function loadTabs1(key){
           btnClass: 'restore',
           text: 'New Window',
           action: function () {
-            chrome.windows.create({url: x});
+            chrome.windows.create({url: x1});
           }
           //$('body').css('height', initial_height);
           //close
@@ -36,6 +40,7 @@ function loadTabs1(key){
     }
     }
   });
+  defaultSessionName();
 }
 
 function loadTabs(event){

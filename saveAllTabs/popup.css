@@ -3,26 +3,39 @@
 /* -------------------- */
 
 * {
-	font-family: "Lato", "Arial", sans-serif;
-	color: #c5c2c2e1;
+	font-family: "Times New Roman", Times, serif;
+	color: #333;
 	font-weight: 300;
+	border: none;	
 }
 
 img {
-	height: 25px;
+	height: 22px;
 }
+
+img[id*='sortRightButton']{
+	height: 15px;
+	margin-top: 5px;
+}
+
+img[id*='deleteButton']:hover,
+img[id*='restoreButton']:hover,
+img[id*='sortRightButton']:hover{
+	cursor: pointer;
+}
+
 button{
-	width: 120px;
+	width: 100px;
+	color: white;
 }
 
 body {
 	border-radius: 30px;
-	width: 350px;
-	min-height: 160px;
-	background-color: #1d3865;
-	max-height: 2000px;
+	width: 	400px;
+	min-height: 240px;
+	background-color: #44649e;
 	overflow: hidden;
-	border: 1px solid #1d3865;
+	background: #f7f7f9;
 	-webkit-border-radius: 30px;
 	-moz-border-radius: 30px;
 	-ms-border-radius: 30px;
@@ -32,7 +45,7 @@ body {
 header {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(bg.jpg);
 	color: #c5c2c2e1;
-	font-family: "Lato", "Arial", sans-serif;
+	font-family: "Times New Roman", Times, serif;
 	height: 120px
 }
 
@@ -54,67 +67,157 @@ strong{
 /* -------------------- */
 
 .saveTab {
-	height: 150px;
-	color: white;
+	height: 81px;
+	
+}
+.inputClass {
+	margin-left: 10px;
+	display: flex;
+	margin-top: 20px;	
+	
+}
+
+.inputClass label{
+
+	padding: 4px;
+	color: inherit;
+	font-size: 95%;
 }
 
 input {
-	margin-top: 20px;
-	border-radius: 20px;
-	height: 40px;
-	width: 220px;
+	margin-left: 5px;
+	border-radius: 12px;
+	height: 35px;
+	width: 130%;
 	text-align: center;
-	font-size: 95%;
-	margin-right: 10px;
-
+	font-size: 90%;
+	outline:none;
+	border: 1px solid rgba(51, 51, 51, 0.513);
+	margin-right: 8px;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
 }
 
 input:focus {
-	color: #1d3865;
+	color: black;	
 }
 
 .saveTagForm {
 	display: flex;
+	margin-bottom: 0px;
+	margin-right: 10px;	
+	margin-left: 10px;
+}
+
+.saveTagForm img{
+	height: 19px;
+}
+
+#savedMsg{
+	visibility: hidden;
+	font-size: 80%;
+	margin-top: 0px;
+	margin-left: 100px;
+	margin-bottom: 0px;
+	color:#1d3865;
+	font-weight: 800;
 }
 
 .saveTagForm button {
-	border: 1px solid #1d3865;
-	border-radius: 20px;
-	background-color: white;
+	border-radius: 12px;
+	border: 1px solid #44649e;
+	background-color: #44649e;
 	font-size: 95%;
 	margin-top: 20px;
-	color: #1d3865;
-	height: 40px;
+	color: white;	
+	height: 35px;
+	outline:none;
 	width: 100px;
-	
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+}
+.saveTagForm button img {
+	height: 17px;
+	margin-left: 5px;
+}
+.saveTagForm button:visited,
+.saveTagForm button:active{
+
+	border: hidden;
 }
 
-.saveTagForm button:hover {
-	font-weight: bold;
-}
+.addLine {
+	border: 1px solid #cccccc;
+	margin-left: 10px;
+	margin-right: 10px;
 
+}
 /* -------------------- */
 /* list div */
 /* -------------------- */
 
-.listOfSavedTabs {
-	margin-top: 10px;
-	margin-bottom: 0px;
+.listOfSavedTabs{
+	background-color: #f7f7f9;
+	margin: 0px;	
+	height: 157px;
+	
 }
- 
+ .listOfSavedTabs p {
+	visibility: hidden;
+	margin: 0px;
+	color: rgba(51, 51, 51, 0.513);
+	 text-align: center;
+	 position: absolute;
+	 top: 120px;
+	 left: 100px;
+	 
+ }
 
-.listOfSavedTabs ul {  
-   
-    overflow:auto;
-	height: 85px;
+.listOfSavedTabs ul {
+
+	height: 157px;
 	padding: 0px 5px 0px 5px;
+	margin-bottom: 0px;
+	transition: overflow 100ms;
+	-webkit-transition: overflow 100ms;
+	-moz-transition: overflow 100ms;
+	-ms-transition: overflow 100ms;
+	-o-transition: overflow 100ms;
+}
+.childView{
+	overflow:auto;
+	display: flex;
+}
+.cleanData{
+    margin-top: 10px;
+    margin-left: 75px;
+    left: 280px;
+	position: absolute;
+	padding: 0px;
+	cursor: pointer;
+}
+
+.listOfSavedTabs ul ul{
+	overflow: hidden;
+
+}
+
+.listOfSavedTabs ul ul li span{
+	margin-right: 5px;
 }
 
 .listOfSavedTabs ul li {
-	color: #c5c2c2f1;
+	color: rgba(10, 10, 10, 0.787);
+	margin-top: 15px;
+	margin-bottom: 15px;
 	display: flex;
 	font-weight: 300;
 	margin-bottom: 5px;
+	list-style: none;
 }
 
 .listOfSavedTabs ul li img {
@@ -125,50 +228,93 @@ input:focus {
 	margin-top: 20px;
 }
 
+ul[id*='sortRightButton']{
+margin-left: 73px;
+font-size: 80%;
+}
+
+ul[id*='sortRightButton'] li{
+	color: #000066;
+	margin: 5px 0px 5px 0px;
+}
+
+ul[id*='sortRightButton'] li a{
+	color: #000066;
+}
+
+ul[id*='sortRightButton'] li a:hover,
+ul[id*='sortRightButton'] li a:active{
+	text-decoration: none;
+	color: #000066;
+}
 /* -------------------- */
 /* Pop Up box */
 /* -------------------- */
+.load{
+	width: 1000px;
+}
+
 
 .jconfirm-box {	
+	width: 90%;	
+	height: 200px;
+	border-top:solid 7px white;
+	padding: 0;
+	font-family: "Times New Roman", Times, serif;
+}	
 
-	width: 90%;
-	font-family: "Lato", "Arial", sans-serif;
-	
-}
-.jconfirm-content div{
-	font-size: 95%;
-	color: #1d3865;
+
+.jconfirm-content div {
+	font-size: 90%;
+	color: #44649e;
 }
 
-.jconfirm-buttons button{
-	text-transform: capitalize;
-	background-color: #1d3865;
+.jconfirm-buttons button {	
+	text-transform: none;
+	background-color: #44649e;
 	color: #888787f1;
-
+}
+.jconfirm.jconfirm-white .jconfirm-box .jconfirm-buttons button, .jconfirm.jconfirm-light .jconfirm-box .jconfirm-buttons button{
+	text-transform: capitalize;
+	color: white	;
 }
 
+.jconfirm-type-animated{
+		height: 150px;
+}
+
+.jconfirm .jconfirm-box.jconfirm-type-red{
+	border-top:none
+}
 .btn-block{
-	background-color: #1d3865;
+	background-color: #44649e;
 	color: #888787f1;
 }
-
+.saveYes{
+	background-color: #44649e;
+}
 .restore{
-	width: 260px;
-	background-color: #1d3865;
+	width: 48%;
+	display: flex;
+	font-size: 90%;
+	background-color: #44649e;
 	color: #888787f1;
 	text-transform: capitalize;
+	text-align: center;
 }
+
 .restore:hover{
-	background-color: #1d3865;
+	background-color: #44649e;
 	color: white;
 }
 .restoreCancel{
-	width: 260px;
+	width: 97%;
 	text-transform: capitalize;
 }
 
-.btn-danger{
+.btn .btn-danger{
 	color: white;
+	background-color: red;
 }
 
 .AddedClose{
@@ -182,7 +328,7 @@ input:focus {
 
 .AddedOk:hover{
 	color: white;
-	background-color: #1d3865;
+	background-color: #44649e;
 }
 
 /* -------------------- */
@@ -193,11 +339,11 @@ input:focus {
 .list-group-item {
 	position: relative;
 	display: block;
-	font-family: "Lato", "Arial", sans-serif;
+	font-family: "Times New Roman", Times, serif;
 	background-color: #c5c2c2f1;
 	padding: 0.75rem 1.25rem;
 	border: 1px solid #1d3865;
-	font-size: 95%;
+	font-size: 90%;
 	float: right;
 	transition: background-color, font-size 0.5s, 0.5s;
 	
@@ -228,9 +374,9 @@ input:focus {
 	text-align: center;
 }
 
-#myConfrimBox {
+/* #myConfrimBox {
 	height: 500px;
-}
+} */
 
 
 /* border of pop list */

@@ -7,6 +7,7 @@ function saveTabTag(){
 
     //alert(height_body);
     //$('body').css('height', height_body*2);
+   
     var name = $('input').val().trim();
     $('input').val('');
     if(len_tags != 0){
@@ -18,14 +19,13 @@ function saveTabTag(){
     //  
 
     let count = 0;
-    var tab_urls = [];
-    
+    var tab_urls = [];    
    
     chrome.tabs.query({'currentWindow': true}, function (tabs) {
         tabs.forEach(function(tab){
-          count = count + 1;
-          
-        tab_urls.push(tab.url);
+          count = count + 1;          
+        tab_urls.push([tab.title,tab.url,tab.favIconUrl]);
+        console.log(tab.favIconUrl);
         });
             
       saveToStorageLogic(name,tab_urls,initial_height);
@@ -58,27 +58,15 @@ function saveTabTag(){
         type: 'red',
         buttons: {
             Yes: {
-              
+              btnClass: 'saveYes',
                 text: 'Yes',                
                 action: function(){
                 localStorage.setItem(name, JSON.stringify(tab_urls));
                 $('body').css('height', initial_height).delay(1000);
-                $.confirm({
-                  content: msg1,
-                  title: false,
-                  buttons: {
-                    close:{
-                      btnClass: 'AddedClose'
-                    },
-                    ok:{
-                      btnClass: 'AddedOk'
-                    }
-                  }
+                $("#savedMsg").css("visibility","visible");
+                defaultSessionName();
                 
-                 
-                })
-
-              }
+              } 
                 //$('body').css('height', initial_height);
             },
             cancel: function () {
@@ -93,23 +81,15 @@ function saveTabTag(){
       
       localStorage.setItem(name, JSON.stringify(tab_urls));
       $('body').css('height', initial_height).delay(1000);
-      $.confirm({
-        content: msg1,
-        title: false,
-        buttons: {
-          close:{
-            btnClass: 'AddedClose'
-          },
-          ok:{
-            btnClass: 'AddedOk'
-          }
-        }
-      
-       
-      })
+          
+      $("#savedMsg").css("visibility","visible");
+      defaultSessionName();
       getAllSavedNames1(name);
 
     }  
+    setTimeout(function(){
+      $("#savedMsg").css("visibility","hidden");
+    },2000)
   }
 
   function getAllSavedNames(){
@@ -123,14 +103,15 @@ function saveTabTag(){
     for (var i=0;i<len_tags;i++){
       var deleteButton='deleteButton'+i;
       var restoreButton='restoreButton'+i;
-      var listItem="<li><img id="+restoreButton+" src='icons8-restore-32.png' title='Retore Tabs'/><img id="+deleteButton+" src='icons8-delete-bin-32.png' title='Delete Tabs'/> &nbsp;&nbsp;&nbsp;"+localStorage.key(i)+"</li>";
-    
+      var sortRightButton='sortRightButton'+i;
+      var listItem="<li value=false><img id="+restoreButton+" src='icons8-restore-32.png' title='Retore Tabs'/><img id="+deleteButton+" src='icons8-delete-bin-32.png' title='Delete Tabs'/> &nbsp;&nbsp;&nbsp;"+localStorage.key(i)+"<img id="+sortRightButton+" src='icons8-sort-right-24.png'/></li>";
+     
+     
       $(".listOfSavedTabs ul").append(listItem);      
     }      
   }
 
   function getAllSavedNames1(name){
-
     var len_tags = localStorage.length;
     // var listContainer=document.getElementsByClassName('listOfSavedTabs');
     // var listElement = "<ul></ul>";
@@ -139,8 +120,27 @@ function saveTabTag(){
     // listContainer.appendChild(listElement);
     var deleteButton='deleteButton'+(len_tags-1);
     var restoreButton='restoreButton'+(len_tags-1);
-    var listItem="<li><img id="+restoreButton+" src='icons8-restore-32.png' title='Retore Tabs'/><img id="+deleteButton+" src='icons8-delete-bin-32.png' title='Delete Tabs'/> &nbsp;&nbsp;&nbsp;"+name+"</li>";
+    var sortRightButton='sortRightButton'+(len_tags-1);
+    var listItem="<li value=false><img id="+restoreButton+" src='icons8-restore-32.png' title='Retore Tabs'/><img id="+deleteButton+" src='icons8-delete-bin-32.png' title='Delete Tabs'/> &nbsp;&nbsp;&nbsp;"+name+"<img id="+sortRightButton+" src='icons8-sort-right-24.png'/></li>";
     $(".listOfSavedTabs ul").append(listItem);   
+    if(localStorage.length==0){
+      $('.listOfSavedTabs p').css("visibility","visible");
+    }
+    else{
+      $('.listOfSavedTabs p').css("visibility","hidden");
+    }
+    if (localStorage.length>1){
+      $('.cleanData').css("visibility","visible");
+    }
+  }
+
+  
+  
+  function defaultSessionName(){
+    var d = new Date();
+    var strDate = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+    var name_session = "Session-"+ strDate;
+    $('input').val(''+name_session);
   }
 
   
