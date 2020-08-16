@@ -185,6 +185,7 @@
             action: function (){
               localStorage.clear();
               $(".listOfSavedTabs ul li").remove();
+              $(".listOfSavedTabs ul ul").remove();
               $('.listOfSavedTabs p').css("visibility","visible");
               $('.cleanData').css("visibility","hidden");
             }},
