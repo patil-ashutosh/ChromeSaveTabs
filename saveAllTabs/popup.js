@@ -43,21 +43,7 @@ $('.saveTagForm button').click(function(){
   }
   
 });
-  
-  // $('#myList a').on('click', function (e) {
-  //   e.preventDefault()
-  //   $(this).tab('show')
-  // });
 
-  // $('#btnTest').click(function(){
-  //   ShowCustomDialog();
-  //   });
-                      
-    
-  //SaveTabsToTag button 
-
-  
-  // $('#exampleModalLong').on('show.bs.modal', loadTabs);
 
 
   $(document.body).on('click',"[id*='deleteButton']", function(){
@@ -76,7 +62,7 @@ $('.saveTagForm button').click(function(){
   $(document.body).on('click',"[id*='restoreButton']", function(){
     $("#savedMsg").css("visibility","hidden");
     var temp=$(this).parent().text();      
-    loadTabs1(temp.trim());   
+    loadTabs(temp.trim());   
   });
 
   $(document.body).on('click',"[id*='sortRightButton']", function(){
@@ -109,7 +95,7 @@ $('.saveTagForm button').click(function(){
           sub_li.append(sub_a);
           sub_ul.append(sub_li); 
 
-          if(element[0].length>40){
+          if(element[0].length>44){
             TotalHeight=TotalHeight+42;
           }
           else{

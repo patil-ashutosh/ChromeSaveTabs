@@ -3,12 +3,7 @@ function saveTabTag(){
     var len_tags = localStorage.length;
     var initial_height = $('body').height();
     msg_saved = 'Session Saved.'
-    //setHeight(len_tags, 1, initial_height);
-
-    //alert(height_body);
-    //$('body').css('height', height_body*2);
-   
-    var name = $('input').val().trim();
+     var name = $('input').val().trim();
     $('input').val('');
     if(len_tags != 0){
         var height_body = initial_height + (34 * (len_tags+1) * 2);
@@ -113,29 +108,20 @@ function saveTabTag(){
 
   function getAllSavedNames1(name){
     var len_tags = localStorage.length;
-    // var listContainer=document.getElementsByClassName('listOfSavedTabs');
-    // var listElement = "<ul></ul>";
-    // $(".listOfSavedTabs ul").append(listElement);
-    console.log(len_tags);
-    // listContainer.appendChild(listElement);
+    console.log(len_tags);   
     var deleteButton='deleteButton'+(len_tags-1);
     var restoreButton='restoreButton'+(len_tags-1);
     var sortRightButton='sortRightButton'+(len_tags-1);
     var listItem="<li value=false><img id="+restoreButton+" src='icons8-restore-32.png' title='Retore Tabs'/><img id="+deleteButton+" src='icons8-delete-bin-32.png' title='Delete Tabs'/> &nbsp;&nbsp;&nbsp;"+name+"<img id="+sortRightButton+" src='icons8-sort-right-24.png'/></li>";
     $(".listOfSavedTabs ul").append(listItem);   
-    if(localStorage.length==0){
-      $('.listOfSavedTabs p').css("visibility","visible");
-    }
-    else{
-      $('.listOfSavedTabs p').css("visibility","hidden");
-    }
+    (localStorage.length==0) ?  $('.listOfSavedTabs p').css("visibility","visible") :  $('.listOfSavedTabs p').css("visibility","hidden");
+
     if (localStorage.length>1){
       $('.cleanData').css("visibility","visible");
     }
   }
 
-  
-  
+    
   function defaultSessionName(){
     var d = new Date();
     var strDate = d.getDate() + "/" + (d.getMonth()+1) + "/" + d.getFullYear()+' '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
@@ -145,6 +131,5 @@ function saveTabTag(){
 
   
 
-//custom Confrim Dialog with Custom message and callback handler
 
 
