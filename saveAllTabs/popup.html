@@ -1,98 +1,89 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="Content-Security-Policy" content="img-src * 'self' data: https:;">
-
-      <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"-->
-      <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
-      <link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
-      <link href="jqueryConfirm/dist/jquery-confirm.min.css" rel="stylesheet" />
-      <link rel="stylesheet" type="text/css" href="popup.css">
-      <title>Save All Tabs</title>
-   </head>
-
-   <body>
-
-      <script type="text/javascript" src="jquery-3.4.1.js"></script>
-      
-      <script src="bootstrap/js//bootstrap.bundle.min.js"></script>
-      <script src="jqueryConfirm/dist/jquery-confirm.min.js"></script>
-      <script src="helper_fn.js"></script>
-      <script src="save_tabs.js"></script>
-      <script src="load_tabs.js"></script>
-      <script src="delete_tabs.js"></script>
-      <script src="popup.js"></script>
-
-   <div class="wholeContent">            
-      <div class="saveTab">
-         <div class="saveTagForm">
-            <div>
-               <div class="inputClass">
-               <label for="">Name:</label>
-                  <input type="text" placeholder="Enter Session Name" onfocus="this.value=''">
-               </div>
-               <p id="savedMsg">Session has been saved.</p>
-            </div>
-            <button title="Save Tabs">Save <img src="icons8-save-16.png" alt="Save"></button>
-         </div>
-         <div class="addLine"></div>
-         <div class="childView">
-            
-            <div class="listOfSavedTabs">
-               <p>No session stored in system</p>
-            </div>
-            <div class="cleanData">
-               <img src="icons8-broom-24.png" alt="deleteAll" title="Delete All">
-            </div>
-         </div>
-      </div>
-
-      <!-- List group  -->
-      <div class="list-group" id="myList" role="tablist">      
-        
-      </div>
-
-      <!-- Modal -->
-      <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Open Session</h5>
-                  <button type="button" class="close" id = "loadCloseicon" style="float: right;" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body" id="md-body">
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" id="loadClose" style="width: 100%" data-dismiss="modal">Close</button>
-               </div>
-            </div>
-         </div>
-      </div>
-
-      <!-- Modal -->
-      <div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="clearModalTitle" aria-hidden="true">
-         <div class="modal-dialog" role="document">
-            <div class="modal-content">
-               <div class="modal-header">
-                  <h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Delete Session</h5>
-                  <button type="button" class="close" id ="clrCloseicon" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                  </button>
-               </div>
-               <div class="modal-body" id="md-body">
-                  <ul class="ul-class" id="ul-id">
-                  </ul>
-               </div>
-               <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" style="width: 100%" id='clrall'>Delete All Sessions</button>
-                  <button type="button" class="btn btn-secondary" style="width: 100%" id ="clrClose" data-dismiss="modal">Close</button>
-               </div>
-            </div>
-         </div>
-      </div>
-    </div>
-   </body>
-</html>
+	<head>
+		<meta charset="utf-8">
+			<meta http-equiv="Content-Security-Policy" content="img-src * 'self' data: https:;">
+				<!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"-->
+				<meta name="description" content="Aug 2020, The Save my Tabs is an extension that with one click can save all open tabs in your browser.">
+				<meta name="keywords" content="Save my Tabs,save Tabs,tab saver, tab save, tab saver">
+				<link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+				<link href="bootstrap/css/bootstrap-theme.css" rel="stylesheet" />
+				<link href="jqueryConfirm/dist/jquery-confirm.min.css" rel="stylesheet" />
+				<link rel="stylesheet" type="text/css" href="popup.css">
+					<title>Save All Tabs</title>
+				</head>
+				<body>
+					<script type="text/javascript" src="jquery-3.4.1.js"></script>
+					<script src="bootstrap/js//bootstrap.bundle.min.js"></script>
+					<script src="jqueryConfirm/dist/jquery-confirm.min.js"></script>
+					<script src="helper_fn.js"></script>
+					<script src="save_tabs.js"></script>
+					<script src="load_tabs.js"></script>
+					<script src="delete_tabs.js"></script>
+					<script src="popup.js"></script>
+					<div class="wholeContent">
+						<div class="saveTab">
+							<div class="saveTagForm">
+								<div>
+									<div class="inputClass">
+										<label for="">Name:</label>
+										<input type="text" placeholder="Enter Session Name" onfocus="this.value=''">
+										</div>
+										<p id="savedMsg">Session has been saved.</p>
+									</div>
+									<button title="Save Tabs">Save 
+										<img src="icons8-save-16.png" alt="Save">
+										</button>
+									</div>
+									<div class="addLine"></div>
+									<div class="childView">
+										<div class="listOfSavedTabs">
+											<p>No session stored in system</p>
+										</div>
+										<div class="cleanData">
+											<img src="icons8-broom-24.png" alt="deleteAll" title="Delete All">
+											</div>
+										</div>
+									</div>
+									<!-- List group  -->
+									<div class="list-group" id="myList" role="tablist"></div>
+									<!-- Modal -->
+									<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Open Session</h5>
+													<button type="button" class="close" id = "loadCloseicon" style="float: right;" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body" id="md-body"></div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-secondary" id="loadClose" style="width: 100%" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!-- Modal -->
+									<div class="modal fade" id="clearModal" tabindex="-1" role="dialog" aria-labelledby="clearModalTitle" aria-hidden="true">
+										<div class="modal-dialog" role="document">
+											<div class="modal-content">
+												<div class="modal-header">
+													<h5 class="modal-title w-100 text-center" id="exampleModalLongTitle">Delete Session</h5>
+													<button type="button" class="close" id ="clrCloseicon" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													</button>
+												</div>
+												<div class="modal-body" id="md-body">
+													<ul class="ul-class" id="ul-id"></ul>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-danger" style="width: 100%" id='clrall'>Delete All Sessions</button>
+													<button type="button" class="btn btn-secondary" style="width: 100%" id ="clrClose" data-dismiss="modal">Close</button>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</body>
+						</html>
