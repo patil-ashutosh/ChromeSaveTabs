@@ -98,8 +98,11 @@ $(document).ready(function() {
         sub_li.append(subSpan);
         sub_li.append(sub_a);
         sub_ul.append(sub_li);
-
-        if (element[0].length > 44) {
+        console.log(element[0]);
+        if (element[0].length > 75){
+          TotalHeight = TotalHeight + 85;
+        }
+        else if (element[0].length > 44) {
           TotalHeight = TotalHeight + 42;
         } else {
           TotalHeight = TotalHeight + 25;
