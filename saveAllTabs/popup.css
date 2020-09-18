@@ -206,15 +206,14 @@ input:focus {
 
 }
 
-.listOfSavedTabs ul ul li span{
-	margin-right: 10px;
+.listOfSavedTabs ul ul li span,
+.listOfSavedTabs ul ul li span img {
+	margin-right: 20px;
+	width: 16px;
+    height: 16px;
 	
 }
 
-.listOfSavedTabs ul ul li span img {
-	width: 16px;
-	height: 16px;
-}
 .listOfSavedTabs ul li {
 	color: rgba(10, 10, 10, 0.787);
 	margin-top: 15px;
