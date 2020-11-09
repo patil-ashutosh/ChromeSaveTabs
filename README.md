@@ -1,5 +1,7 @@
 # Save Tabs Chrome Extension
 
+https://chrome.google.com/webstore/detail/save-tabs/dhgkdkollobnolailbckohhaikklnnki
+
 
 Save browser tabs in one-click and Restore tabs when need.
 
